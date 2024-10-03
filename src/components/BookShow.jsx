@@ -1,18 +1,20 @@
 /* eslint-disable no-unused-vars */
 /* eslint-disable react/prop-types */
-import {useState} from 'react'
+import {useState, useContext} from 'react'
+import BooksContext from '../context/books'
 import BookEdit from './BookEdit'
 
-const BookShow = ({book, onDelete,onEdit}) => {
+const BookShow = ({book}) => {
 const [showEdit, setShowEdit] = useState(false)
+const {deleteBookById} = useContext(BooksContext)
 
-const handleSubmit = (id, newTitle)=>{
+const handleSubmit = ()=>{
   setShowEdit(false)
-  onEdit(id, newTitle)
+
 }
 
   const handleDeleteClick=()=>{
-    onDelete(book.id)
+    deleteBookById(book.id)
   }
 
   const handleEditClick =()=>{
