@@ -1,11 +1,11 @@
 /* eslint-disable react/prop-types */
-import {useState, useContext} from 'react'
-import BooksContext from '../context/books'
+import {useState} from 'react'
+import useBooksContext from '../hooks/use-books-context'
 
 const BookEdit = ({book, onSubmit}) => {
 
 const [title, setTitle] = useState(book.title)
-const {editBookById} = useContext(BooksContext)
+const {editBookById} = useBooksContext()
 
 const handleChange = (event)=>{
   setTitle(event.target.value)
